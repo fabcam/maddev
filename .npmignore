@@ -1,0 +1,11 @@
+# Exclude sources, configs, and examples from the published package
+src
+ts-plugin
+examples
+tsconfig*.json
+docs
+INTERNAL.md
+package-lock.json
+.vscode
+.gitignore
+*.mts

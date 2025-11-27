@@ -90,3 +90,5 @@ fuckingReadonly: "readonly",
 fuckingGet: "get",
 fuckingSet: "set"
 ```
+
+Internal notes live in `docs/INTERNAL.md` so they stay out of the npm package.

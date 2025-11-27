@@ -1,6 +1,6 @@
 {
   "name": "maddev-lang",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "bin": {
     "maddevc": "dist/cli.js"
@@ -14,9 +14,8 @@
   },
   "files": [
     "dist",
-    "src",
     "README.md",
-    "package.json"
+    "LICENSE"
   ],
   "types": "dist/compiler.d.ts",
   "dependencies": {

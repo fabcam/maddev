@@ -1,4 +1,4 @@
-# maddev-lang (skeleton)
+# Internal notes
 
 Minimal prototype that accepts renamed keywords and compiles to JavaScript using TypeScript under the hood.
 
