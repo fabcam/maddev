@@ -1,50 +1,12 @@
-# maddev-lang (skeleton)
+# MadDev Lang / Angry dev
 
-Minimal prototype that accepts renamed keywords and compiles to JavaScript using TypeScript under the hood.
+Have you ever been so angry that you want to type f*ck everywhere? Say no more. Now you can. IntelliSense won’t complain, and when you’re done it all builds into clean JavaScript.
 
-## Flow
-
-1. `rewriteKeywordsToTS` uses the TypeScript scanner to detect identifiers that match our map (`src/customKeywords.ts`) and replaces them with the original keywords without touching strings/comments.
-2. `compileExtended` transpiles the resulting text with `ts.transpileModule`, producing JS and an optional sourcemap.
-3. `maddevc` (CLI) lets you compile `.mts` files.
-
-## Usage
-
+To be able to curse in code you just need to run:
 ```bash
-# install deps
-npm install
-
-# build and run the example
-npm run build
-node dist/cli.js examples/test.mts --print
-node dist/cli.js examples/test.mts --out dist/test.js
+npm install -D maddev-lang maddev-ts-plugin
 ```
-
-You can also run directly with ts-node while iterating:
-
-```bash
-npm run dev -- examples/test.mts --print
-```
-
-## Extend
-
-- Add or change keywords in `src/customKeywords.ts`.
-- If you want more syntactic sugar beyond simple keyword replacement, add an extra transformation step in `compileExtended` before handing off to TypeScript.
-- For richer diagnostics/AST work, you could replace `ts.transpileModule` with a normal `Program` (`ts.createProgram`) and walk the AST.
-
-### Modify keyword mappings
-
-1. Update both maps: `src/customKeywords.ts` (compiler) and `ts-plugin/index.js` (IntelliSense).
-2. Refresh the plugin install (it is local): `npm install` (or `npm install --force` if VSCode cached it).
-3. Rebuild the CLI if needed: `npm run build`.
-4. Restart the TS server in VSCode (Cmd/Ctrl + Shift + P → “TypeScript: Restart TS server”) so the plugin picks up the new map.
-
-## VSCode IntelliSense
-
-Use the bundled TS Language Service plugin so VSCode understands the renamed keywords:
-
-1) Install the local plugin dependency (if you haven’t): `npm install`
-2) In your `tsconfig.json`, add:
+Then in your `tsconfig.json` file:
 ```json
 {
   "compilerOptions": {
@@ -54,11 +16,27 @@ Use the bundled TS Language Service plugin so VSCode understands the renamed key
   }
 }
 ```
-3) Restart the TypeScript server in VSCode (Cmd/Ctrl + Shift + P → “TypeScript: Restart TS server”).
-4) Open your `.mts` files; IntelliSense should stop flagging the custom keywords as unknown.
 
-If VSCode can’t resolve the plugin, ensure you’re using the workspace TypeScript version (Cmd/Ctrl + Shift + P → “TypeScript: Select TypeScript Version” → “Use Workspace Version”) and that `node_modules/maddev-ts-plugin` exists (run `npm install` again if not).
+Here’s a f*cking example:
+```mts
+fuckingClass TestClass {
+  testMessage: string = "";
 
-## Note
+  fuckingConstructor() {
+    fuckingThis.testMessage = "Fucking hello world!";
+  }
 
-This is intentionally minimal: it does not modify the TypeScript parser, it only rewrites keyword tokens. It’s a good first step to validate the dialect and keep extending.
+  fuckingFunction test(): void {
+    console.log(`Test, ${fuckingThis.testMessage}!`);
+    fuckingConst a = 1;
+    fuckingIf(a === 1) {
+      console.log("Fucking condition met.");
+    }
+  }
+}
+
+fuckingConst testClass = fuckingNew TestClass();
+testClass.test();
+```
+
+Potential cursing expressions can be found in `src/customKeywords.ts`.
