@@ -1,0 +1,21 @@
+{
+  "name": "maddev-lang",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "maddevc": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/cli.js",
+    "dev": "ts-node src/cli.ts",
+    "test": "node dist/cli.js examples/hello.mts --print"
+  },
+  "dependencies": {
+    "typescript": "^5.4.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "maddev-ts-plugin": "file:./ts-plugin"
+  }
+}
