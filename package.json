@@ -1,6 +1,6 @@
 {
   "name": "maddev-lang",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "bin": {
     "maddevc": "dist/cli.js"

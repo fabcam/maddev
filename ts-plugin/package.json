@@ -1,6 +1,6 @@
 {
   "name": "maddev-ts-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "TypeScript Language Service plugin for maddev-lang keywords.",
   "main": "index.js",
   "type": "commonjs",
